@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://difuxpjwy1as0"]
+
+[ext_resource type="PackedScene" uid="uid://duhh3236j1h3h" path="res://ball.tscn" id="1_hm4je"]
+[ext_resource type="Script" path="res://spawner.gd" id="1_xndjs"]
+[ext_resource type="PackedScene" uid="uid://dtxymqscqjl6q" path="res://usdz.tscn" id="3_byy2g"]
+
+[sub_resource type="Gradient" id="Gradient_dando"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.364407, 0.576271)
+colors = PackedColorArray(0.713726, 0, 0, 1, 0.302559, 0.41618, 0.184104, 1, 0.960223, 0.352945, 0.536558, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2cbos"]
+frequency = 0.0064
+domain_warp_enabled = true
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rgqrj"]
+generate_mipmaps = false
+seamless = true
+color_ramp = SubResource("Gradient_dando")
+noise = SubResource("FastNoiseLite_2cbos")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6hsvu"]
+panorama = SubResource("NoiseTexture2D_rgqrj")
+
+[sub_resource type="Sky" id="Sky_2r4og"]
+sky_material = SubResource("PanoramaSkyMaterial_6hsvu")
+
+[sub_resource type="Environment" id="Environment_3mijm"]
+background_mode = 2
+background_energy_multiplier = 1.76
+sky = SubResource("Sky_2r4og")
+sky_custom_fov = 136.8
+ambient_light_source = 3
+reflected_light_source = 2
+glow_enabled = true
+glow_intensity = 0.97
+glow_bloom = 0.33
+glow_hdr_scale = 2.93
+glow_hdr_luminance_cap = 41.64
+adjustment_enabled = true
+adjustment_brightness = 0.66
+adjustment_contrast = 5.79
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_xndjs")
+spawn_every_n_seconds = 0.1
+instance_scene = ExtResource("1_hm4je")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
+current = true
+fov = 60.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3mijm")
+
+[node name="usdz" parent="." instance=ExtResource("3_byy2g")]
+transform = Transform3D(-0.144149, -0.711685, 0.68755, -0.713484, 0.556194, 0.426132, -0.685683, -0.42913, -0.587951, -0.0461874, 9.79761, 8.71331)
