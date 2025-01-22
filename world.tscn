@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=9 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="PackedScene" uid="uid://duhh3236j1h3h" path="res://ball.tscn" id="1_hm4je"]
 [ext_resource type="Script" path="res://spawner.gd" id="1_xndjs"]
-[ext_resource type="PackedScene" uid="uid://dtxymqscqjl6q" path="res://usdz.tscn" id="3_byy2g"]
 
 [sub_resource type="Gradient" id="Gradient_dando"]
 interpolation_mode = 1
@@ -46,6 +45,8 @@ adjustment_contrast = 5.79
 script = ExtResource("1_xndjs")
 spawn_every_n_seconds = 0.1
 instance_scene = ExtResource("1_hm4je")
+spawn_position_variance_x = 10.0
+spawn_position_variance_z = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
@@ -54,6 +55,3 @@ fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mijm")
-
-[node name="usdz" parent="." instance=ExtResource("3_byy2g")]
-transform = Transform3D(-0.144149, -0.711685, 0.68755, -0.713484, 0.556194, 0.426132, -0.685683, -0.42913, -0.587951, -0.0461874, 9.79761, 8.71331)

@@ -4,9 +4,12 @@ var counter = 0
 @export var spawn_every_n_seconds = 1.0
 @export var instance_scene: PackedScene
 
-# Called when the node enters the scene tree for the first time.
+@export var spawn_position_variance_x = 0.0
+@export var spawn_position_variance_y = 0.0
+@export var spawn_position_variance_z = 0.0
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _process(delta: float) -> void:
@@ -17,5 +20,8 @@ func _process(delta: float) -> void:
 
 func spawn_instance() -> void:
 	var instance = instance_scene.instantiate()
-	instance.position = Vector3(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
+	var spawn_x = randf() * spawn_position_variance_x - spawn_position_variance_x / 2
+	var spawn_y = randf() * spawn_position_variance_y - spawn_position_variance_y / 2
+	var spawn_z = randf() * spawn_position_variance_z - spawn_position_variance_z / 2
+	instance.position = Vector3(spawn_x, spawn_y, spawn_z)
 	add_child(instance)
