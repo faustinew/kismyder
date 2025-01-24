@@ -27,19 +27,23 @@ sky_material = SubResource("PanoramaSkyMaterial_6hsvu")
 
 [sub_resource type="Environment" id="Environment_3mijm"]
 background_mode = 2
-background_energy_multiplier = 1.76
 sky = SubResource("Sky_2r4og")
-sky_custom_fov = 136.8
+sky_custom_fov = 117.9
 ambient_light_source = 3
 reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.67
+tonemap_white = 1.34
 glow_enabled = true
-glow_intensity = 0.97
+glow_intensity = 0.3
 glow_bloom = 0.33
-glow_hdr_scale = 2.93
-glow_hdr_luminance_cap = 41.64
+glow_hdr_threshold = 1.04
+glow_hdr_scale = 2.09
+glow_hdr_luminance_cap = 76.67
 adjustment_enabled = true
-adjustment_brightness = 0.66
-adjustment_contrast = 5.79
+adjustment_brightness = 0.49
+adjustment_contrast = 2.09
+adjustment_saturation = 2.01
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_xndjs")
