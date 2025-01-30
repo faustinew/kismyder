@@ -24,6 +24,37 @@ project/assembly_name="kismyder"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[input]
+
+face_nose={
+"deadzone": 0.5,
+"events": []
+}
+face_ears={
+"deadzone": 0.5,
+"events": []
+}
+face_mouth_upper={
+"deadzone": 0.5,
+"events": []
+}
+face_mouth_lower={
+"deadzone": 0.5,
+"events": []
+}
+face_mouth_open={
+"deadzone": 0.5,
+"events": []
+}
+light1_colour={
+"deadzone": 0.5,
+"events": []
+}
+light1_intensity={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

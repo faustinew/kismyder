@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=10 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="PackedScene" uid="uid://duhh3236j1h3h" path="res://ball.tscn" id="1_hm4je"]
 [ext_resource type="Script" path="res://spawner.gd" id="1_xndjs"]
+[ext_resource type="Script" path="res://input.gd" id="3_epbl4"]
 
 [sub_resource type="Gradient" id="Gradient_dando"]
 interpolation_mode = 1
@@ -59,3 +60,6 @@ fov = 60.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mijm")
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("3_epbl4")
