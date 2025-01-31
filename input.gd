@@ -1,8 +1,13 @@
 extends Node
 
+var cc: Array[int] = []
+
 func _ready():
 	OS.open_midi_inputs()
 	print(OS.get_connected_midi_inputs())
+
+	#initialise tous les CC
+	cc.resize(128)
 
 	#InputMap.action_add_event("face_nose",)
 
@@ -21,6 +26,7 @@ func _print_midi_info(midi_event):
 	print("Controller number: ", midi_event.controller_number)
 	print("Controller value: ", midi_event.controller_value)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMIDI:
-		print(event.controller_number, ": ", event.controller_value)
+		cc[event.controller_number] = event.controller_value
+		#print(event.controller_number, ": ", cc[event.controller_number])

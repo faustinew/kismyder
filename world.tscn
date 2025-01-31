@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://duhh3236j1h3h" path="res://ball.tscn" id="1_hm4je"]
 [ext_resource type="Script" path="res://spawner.gd" id="1_xndjs"]
-[ext_resource type="Script" path="res://input.gd" id="3_epbl4"]
+[ext_resource type="PackedScene" uid="uid://b21mla0mmqooh" path="res://bighead_mouth.tscn" id="3_v2hqq"]
 
 [sub_resource type="Gradient" id="Gradient_dando"]
 interpolation_mode = 1
@@ -61,5 +61,5 @@ fov = 60.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3mijm")
 
-[node name="Input" type="Node" parent="."]
-script = ExtResource("3_epbl4")
+[node name="usdz shapekeys" parent="." instance=ExtResource("3_v2hqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385386, 5.31542, 0.873113)
