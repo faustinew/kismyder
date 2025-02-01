@@ -8,6 +8,8 @@ func _ready():
 
 	#initialise tous les CC
 	cc.resize(128)
+	for n in cc:
+		cc[n] = 64
 
 	#InputMap.action_add_event("face_nose",)
 

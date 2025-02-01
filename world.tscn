@@ -1,65 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=4 format=3 uid="uid://difuxpjwy1as0"]
 
-[ext_resource type="PackedScene" uid="uid://duhh3236j1h3h" path="res://ball.tscn" id="1_hm4je"]
-[ext_resource type="Script" path="res://spawner.gd" id="1_xndjs"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="1_0aqul"]
 [ext_resource type="PackedScene" uid="uid://b21mla0mmqooh" path="res://bighead_mouth.tscn" id="3_v2hqq"]
 
-[sub_resource type="Gradient" id="Gradient_dando"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.364407, 0.576271)
-colors = PackedColorArray(0.713726, 0, 0, 1, 0.302559, 0.41618, 0.184104, 1, 0.960223, 0.352945, 0.536558, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2cbos"]
-frequency = 0.0064
-domain_warp_enabled = true
-metadata/_preview_in_3d_space_ = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rgqrj"]
-generate_mipmaps = false
-seamless = true
-color_ramp = SubResource("Gradient_dando")
-noise = SubResource("FastNoiseLite_2cbos")
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6hsvu"]
-panorama = SubResource("NoiseTexture2D_rgqrj")
-
-[sub_resource type="Sky" id="Sky_2r4og"]
-sky_material = SubResource("PanoramaSkyMaterial_6hsvu")
-
-[sub_resource type="Environment" id="Environment_3mijm"]
-background_mode = 2
-sky = SubResource("Sky_2r4og")
-sky_custom_fov = 117.9
-ambient_light_source = 3
-reflected_light_source = 2
-tonemap_mode = 2
-tonemap_exposure = 1.67
-tonemap_white = 1.34
-glow_enabled = true
-glow_intensity = 0.3
-glow_bloom = 0.33
-glow_hdr_threshold = 1.04
-glow_hdr_scale = 2.09
-glow_hdr_luminance_cap = 76.67
-adjustment_enabled = true
-adjustment_brightness = 0.49
-adjustment_contrast = 2.09
-adjustment_saturation = 2.01
+[sub_resource type="Environment" id="Environment_gn15j"]
+background_mode = 1
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.0
 
 [node name="World" type="Node3D"]
-script = ExtResource("1_xndjs")
-spawn_every_n_seconds = 0.1
-instance_scene = ExtResource("1_hm4je")
-spawn_position_variance_x = 10.0
-spawn_position_variance_z = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 10, 10, 10)
+transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 1, 16)
 current = true
-fov = 60.0
+fov = 40.0
+script = ExtResource("1_0aqul")
+
+[node name="KismyderFace" parent="." instance=ExtResource("3_v2hqq")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3mijm")
+environment = SubResource("Environment_gn15j")
 
-[node name="usdz shapekeys" parent="." instance=ExtResource("3_v2hqq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.385386, 5.31542, 0.873113)
+[node name="Lights" type="Node" parent="."]
+
+[node name="Light1" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+light_color = Color(1, 0, 0, 1)
+
+[node name="Light2" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
+light_color = Color(0, 1, 0, 1)
+
+[node name="Light3" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+light_color = Color(0, 0, 1, 1)
