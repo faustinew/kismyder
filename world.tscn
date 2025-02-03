@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=5 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="Script" path="res://camera_3d.gd" id="1_0aqul"]
+[ext_resource type="Script" path="res://lights.gd" id="3_sa3l7"]
 [ext_resource type="PackedScene" uid="uid://b21mla0mmqooh" path="res://bighead_mouth.tscn" id="3_v2hqq"]
 
 [sub_resource type="Environment" id="Environment_gn15j"]
@@ -23,16 +24,17 @@ script = ExtResource("1_0aqul")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gn15j")
 
-[node name="Lights" type="Node" parent="."]
+[node name="Lights" type="Node3D" parent="."]
+script = ExtResource("3_sa3l7")
 
 [node name="Light1" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 light_color = Color(1, 0.75, 0.75, 1)
 
 [node name="Light2" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
-light_color = Color(0.75, 1, 0.75, 1)
+transform = Transform3D(0.707107, -0.298836, -0.640857, 0, 0.906308, -0.422618, 0.707107, 0.298836, 0.640857, 0, 0, 0)
+light_color = Color(0.875, 1, 0.75, 1)
 
 [node name="Light3" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-light_color = Color(0.75, 0.75, 1, 1)
+transform = Transform3D(-0.906308, 0.178606, -0.383022, 0, 0.906308, 0.422618, 0.422618, 0.383022, -0.821394, 0, 0, 0)
+light_color = Color(1, 1, 0.75, 1)

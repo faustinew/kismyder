@@ -3,6 +3,7 @@ extends Node
 var cc: Array[int] = []
 
 signal cc_changed(cc_number)
+signal key_pressed(key)
 
 func _ready():
 	OS.open_midi_inputs()
@@ -12,12 +13,6 @@ func _ready():
 	cc.resize(128)
 	for n in cc:
 		cc[n] = 0
-
-	#InputMap.action_add_event("face_nose",)
-
-# func _input(input_event):
-# 	if input_event is InputEventMIDI:
-# 		_print_midi_info(input_event)
 
 func _print_midi_info(midi_event):
 	print(midi_event)
@@ -32,6 +27,12 @@ func _print_midi_info(midi_event):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMIDI:
-		cc[event.controller_number] = event.controller_value
-		cc_changed.emit(event.controller_number)
+		if event.message == MIDI_MESSAGE_NOTE_ON:
+			if event.pitch > 40:
+				key_pressed.emit(event.pitch)
+		else:
+			if event.controller_number > 0:
+				cc[event.controller_number] = event.controller_value
+				cc_changed.emit(event.controller_number)
 		#print(event.controller_number, ": ", cc[event.controller_number])
+		#print(event.pitch)
