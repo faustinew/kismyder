@@ -7,6 +7,8 @@ var chaos_counter = 0
 
 var morph_speed = 16.0
 
+var parent
+
 
 # un multiplieur pour des déformations aléatoires
 var chaos = 0.0
@@ -18,6 +20,8 @@ var max_head_speed = 500.0
 var face_shape = {}
 
 func _ready() -> void:
+	parent = get_parent()
+
 	GlobalInput.cc_changed.connect(_on_cc_changed)
 	GlobalInput.key_pressed.connect(_on_key_pressed)
 
@@ -30,8 +34,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 
-	rotation_degrees.y += head_rotation * delta
-	rotation_degrees.x = head_tilt
+	parent.rotation_degrees.y += head_rotation * delta
+	parent.rotation_degrees.x = head_tilt
 
 	label.text = str(chaos)
 

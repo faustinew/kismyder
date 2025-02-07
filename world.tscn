@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=9 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="Script" path="res://camera_3d.gd" id="1_0aqul"]
 [ext_resource type="Script" path="res://lights.gd" id="3_sa3l7"]
 [ext_resource type="PackedScene" uid="uid://b21mla0mmqooh" path="res://bighead_mouth.tscn" id="3_v2hqq"]
+[ext_resource type="Script" path="res://spawner.gd" id="3_wolhj"]
+[ext_resource type="PackedScene" uid="uid://b5uoxr64dalnc" path="res://minihead.tscn" id="4_pfx8g"]
+[ext_resource type="PackedScene" uid="uid://cjado2kq3cddc" path="res://kismylogo.tscn" id="5_ei8dp"]
 
 [sub_resource type="Environment" id="Environment_gn15j"]
 background_mode = 1
@@ -10,6 +13,8 @@ background_energy_multiplier = 0.0
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rfgv6"]
 
 [node name="World" type="Node3D"]
 
@@ -20,6 +25,12 @@ fov = 40.0
 script = ExtResource("1_0aqul")
 
 [node name="KismyderFace" parent="." instance=ExtResource("3_v2hqq")]
+
+[node name="Spawner" type="Node3D" parent="KismyderFace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1617, 2.3383)
+script = ExtResource("3_wolhj")
+spawn_every_n_seconds = 0.1
+instance_scene = Array[PackedScene]([ExtResource("4_pfx8g"), ExtResource("5_ei8dp")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gn15j")
@@ -38,3 +49,29 @@ light_color = Color(0.875, 1, 0.75, 1)
 [node name="Light3" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(-0.906308, 0.178606, -0.383022, 0, 0.906308, 0.422618, 0.422618, 0.383022, -0.821394, 0, 0, 0)
 light_color = Color(1, 1, 0.75, 1)
+
+[node name="Boundaries" type="StaticBody3D" parent="."]
+
+[node name="D" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16, 0)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="U" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 16, 0)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="N" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, -16)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="S" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 16)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="E" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="O" type="CollisionShape3D" parent="Boundaries"]
+transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -16, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_rfgv6")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjado2kq3cddc"]
+
+[ext_resource type="Script" path="res://minihead.gd" id="1_mhud0"]
+[ext_resource type="ArrayMesh" uid="uid://bjvc3e43xsu2a" path="res://stuff/kismylogo.res" id="2_po6fw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aeo7v"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pb3bu"]
+size = Vector3(6, 1, 0.5)
+
+[node name="minihead" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_aeo7v")
+gravity_scale = 0.0
+angular_velocity = Vector3(0, 1.74533, 0)
+script = ExtResource("1_mhud0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_po6fw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.497261, -0.0522642, 0, 0.0522642, 0.497261, 0, 0, 0, 0.5, 0, 0.075, 0)
+shape = SubResource("BoxShape3D_pb3bu")
