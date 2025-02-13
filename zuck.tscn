@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj8mqnrwi25lw"]
+
+[ext_resource type="Script" path="res://minihead.gd" id="1_03od7"]
+[ext_resource type="ArrayMesh" uid="uid://yp1kjr24asmi" path="res://stuff/zuck.res" id="2_uu2l3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_aeo7v"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycvu8"]
+size = Vector3(1.9, 1.9, 1.9)
+
+[node name="zuck" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_aeo7v")
+gravity_scale = 0.153
+script = ExtResource("1_03od7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_uu2l3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ycvu8")

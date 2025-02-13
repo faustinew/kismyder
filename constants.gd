@@ -32,6 +32,15 @@ const KEY_CAM_DEFAULT = 73
 const KEY_CAM_FISHEYE = 74
 const KEY_CAM_FLATTEN = 75
 
+const KEY_VOMI = {
+	"TETE" = 60,
+	"LOGO" = 59,
+	"BEZO" = 58,
+	"BLOD" = 91,
+	"TOFF" = 92,
+	"ZUCK" = 90
+}
+
 
 # dictionnaire des "Blend shape" = [0: numéro de CC main, 1: numéro de CC du multiplieur, 2: valeur minimum (0 ou -1)]
 const SHAPE_DICTIONARY = {

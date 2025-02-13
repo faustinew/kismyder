@@ -31,7 +31,68 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Bezos": {
+"use_external/enabled": true,
+"use_external/path": "res://stuff/Bezos.tres"
+},
+"Blood": {
+"use_external/enabled": true,
+"use_external/path": "res://stuff/Blood.tres"
+},
+"Egg": {
+"use_external/enabled": true,
+"use_external/path": "res://stuff/Egg.tres"
+},
+"Kismyphoto": {
+"use_external/enabled": true,
+"use_external/path": "res://stuff/Kismyphoto.tres"
+},
+"Zuck": {
+"use_external/enabled": true,
+"use_external/path": "res://stuff/Zuck.tres"
+}
+},
+"meshes": {
+"blood_Bezos": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://bezos.res"
+},
+"blood_Blood": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://stuff/blood.res"
+},
+"blood_Kismyphoto": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://kismyphoto.res"
+},
+"blood_Zuck": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://zuck.res"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

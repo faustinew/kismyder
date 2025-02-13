@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=13 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="Script" path="res://camera_3d.gd" id="1_0aqul"]
 [ext_resource type="Script" path="res://lights.gd" id="3_sa3l7"]
@@ -6,6 +6,10 @@
 [ext_resource type="Script" path="res://spawner.gd" id="3_wolhj"]
 [ext_resource type="PackedScene" uid="uid://b5uoxr64dalnc" path="res://minihead.tscn" id="4_pfx8g"]
 [ext_resource type="PackedScene" uid="uid://cjado2kq3cddc" path="res://kismylogo.tscn" id="5_ei8dp"]
+[ext_resource type="PackedScene" uid="uid://drqauncirvk42" path="res://bezos.tscn" id="6_mhbdy"]
+[ext_resource type="PackedScene" uid="uid://8tkplkngf0rx" path="res://blood.tscn" id="7_sgbml"]
+[ext_resource type="PackedScene" uid="uid://342w54ahp6an" path="res://kismyphoto.tscn" id="8_ua4vg"]
+[ext_resource type="PackedScene" uid="uid://dj8mqnrwi25lw" path="res://zuck.tscn" id="9_hyojn"]
 
 [sub_resource type="Environment" id="Environment_gn15j"]
 background_mode = 1
@@ -27,10 +31,9 @@ script = ExtResource("1_0aqul")
 [node name="KismyderFace" parent="." instance=ExtResource("3_v2hqq")]
 
 [node name="Spawner" type="Node3D" parent="KismyderFace"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1617, 2.3383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99321, 1.5)
 script = ExtResource("3_wolhj")
-spawn_every_n_seconds = 0.1
-instance_scene = Array[PackedScene]([ExtResource("4_pfx8g"), ExtResource("5_ei8dp")])
+instance_scene = Array[PackedScene]([ExtResource("6_mhbdy"), ExtResource("7_sgbml"), ExtResource("5_ei8dp"), ExtResource("4_pfx8g"), ExtResource("8_ua4vg"), ExtResource("9_hyojn")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gn15j")

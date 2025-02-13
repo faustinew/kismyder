@@ -5,7 +5,7 @@ extends MeshInstance3D
 
 var chaos_counter = 0
 
-var morph_speed = 16.0
+var morph_speed = 64.0
 
 var parent
 
@@ -74,3 +74,7 @@ func _on_key_pressed(key) -> void:
 		Constants.KEY_RESET:
 			for n in face_shape:
 				face_shape[n][1] = 0.0
+		_:
+			if key in Constants.KEY_VOMI.values():
+				if face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] < 1.0:
+					face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] = 1.0 # oula

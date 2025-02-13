@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b6qcs04txf4ar"]
+
+[ext_resource type="Texture2D" uid="uid://g15nf621ise" path="res://stuff/kismyder.png" id="1_ik86v"]
+
+[resource]
+resource_name = "Kismyphoto"
+cull_mode = 2
+albedo_texture = ExtResource("1_ik86v")
+metallic = 0.136364
+roughness = 0.35
