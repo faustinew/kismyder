@@ -14,6 +14,8 @@ size = Vector3(1.9, 1.9, 0.15)
 physics_material_override = SubResource("PhysicsMaterial_aeo7v")
 gravity_scale = 0.0
 script = ExtResource("1_vh8cx")
+speed = 12.0
+random_torque = 666.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_raji2")

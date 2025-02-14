@@ -11,9 +11,12 @@ bounce = 1.0
 size = Vector3(1.9, 1.9, 1.9)
 
 [node name="zuck" type="RigidBody3D"]
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_aeo7v")
 gravity_scale = 0.153
+constant_torque = Vector3(0, 3.665, 0)
 script = ExtResource("1_03od7")
+grow_speed = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_uu2l3")

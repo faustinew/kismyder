@@ -4,6 +4,7 @@ var cc: Array[int] = []
 
 signal cc_changed(cc_number)
 signal key_pressed(key)
+signal key_released(key)
 
 func _ready():
 	OS.open_midi_inputs()
@@ -30,8 +31,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.message == MIDI_MESSAGE_NOTE_ON:
 			if event.pitch > 40:
 				key_pressed.emit(event.pitch)
-		else:
-			if event.controller_number > 0:
+		elif event.message == MIDI_MESSAGE_NOTE_OFF:
+			if event.pitch > 40:
+				key_released.emit(event.pitch)
+		elif event.controller_number > 0:
 				cc[event.controller_number] = event.controller_value
 				cc_changed.emit(event.controller_number)
 		#print(event.controller_number, ": ", cc[event.controller_number])

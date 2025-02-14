@@ -2,12 +2,19 @@ extends Node3D
 
 var scene_root
 
-# var counter = 0
-# @export var spawn_every_n_seconds = 1.0
+var vbezo = false
+var vblod = false
+var vtete = false
+var vtoff = false
+var vzuck = false
+
+var counter = 0
+@export var spawn_every_n_seconds = 0.05
 @export var instance_scene: Array[PackedScene]
 
 func _ready() -> void:
 	GlobalInput.key_pressed.connect(_on_key_pressed)
+	GlobalInput.key_released.connect(_on_key_released)
 	
 	scene_root = get_tree().current_scene
 
@@ -17,6 +24,22 @@ func _ready() -> void:
 # 	if counter >= spawn_every_n_seconds:
 # 		spawn_random_instance()
 # 		counter = 0.0
+
+func _process(delta: float) -> void:
+
+	counter += 1.0 * delta
+	if counter >= spawn_every_n_seconds:
+		if vbezo:
+			spawn_instance(instance_scene[0])
+		if vblod:
+			spawn_instance(instance_scene[1])
+		if vtete:
+			spawn_instance(instance_scene[3])
+		if vtoff:
+			spawn_instance(instance_scene[4])
+		if vzuck:
+			spawn_instance(instance_scene[5])
+
 
 func spawn_random_instance() -> void:
 	var instance = instance_scene.pick_random().instantiate()
@@ -29,21 +52,32 @@ func spawn_instance(scene) -> void:
 	instance.rotation = global_rotation
 	instance.position = global_position
 	scene_root.add_child(instance)
+	counter = 0.0
 
 func _on_key_pressed(key) -> void:
-	print("pisse:")
 	match key:
 		Constants.KEY_VOMI["BEZO"]:
-			spawn_instance(instance_scene[0])
-			print("bez ")
+			vbezo = true
 		Constants.KEY_VOMI["BLOD"]:
-			spawn_instance(instance_scene[1])
-			print("blodddd")
+			vblod = true
 		Constants.KEY_VOMI["LOGO"]:
 			spawn_instance(instance_scene[2])
 		Constants.KEY_VOMI["TETE"]:
-			spawn_instance(instance_scene[3])
+			vtete = true
 		Constants.KEY_VOMI["TOFF"]:
-			spawn_instance(instance_scene[4])
+			vtoff = true
 		Constants.KEY_VOMI["ZUCK"]:
-			spawn_instance(instance_scene[5])
+			vzuck = true
+			
+func _on_key_released(key) -> void:
+	match key:
+		Constants.KEY_VOMI["BEZO"]:
+			vbezo = false
+		Constants.KEY_VOMI["BLOD"]:
+			vblod = false
+		Constants.KEY_VOMI["TETE"]:
+			vtete = false
+		Constants.KEY_VOMI["TOFF"]:
+			vtoff = false
+		Constants.KEY_VOMI["ZUCK"]:
+			vzuck = false

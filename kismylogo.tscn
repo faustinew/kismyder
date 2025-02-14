@@ -23,3 +23,12 @@ mesh = ExtResource("2_po6fw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.497261, -0.0522642, 0, 0.0522642, 0.497261, 0, 0, 0, 0.5, 0, 0.075, 0)
 shape = SubResource("BoxShape3D_pb3bu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0340649, 0.499482)
+light_energy = 1.324
+light_size = 0.344
+light_specular = 11.836
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 0.619
