@@ -16,6 +16,9 @@ physics_material_override = SubResource("PhysicsMaterial_aeo7v")
 gravity_scale = 0.153
 constant_torque = Vector3(0, 3.665, 0)
 script = ExtResource("1_03od7")
+speed = 4.6
+random_torque = 6.62
+spawn_angle_range = Vector3(3, 45, 20)
 grow_speed = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

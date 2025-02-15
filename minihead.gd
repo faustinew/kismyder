@@ -9,6 +9,8 @@ var variation = 0.01
 var angle_variation = Vector3(randf_range(-variation, variation), randf_range(-variation, variation), randf_range(-variation, variation))
 @export var random_torque = 1.0
 
+@export var spawn_angle_range = Vector3(0.0, 0.0, 45.0) # In degrees
+
 var target_size
 @export var grow_speed = 3.0
 
@@ -21,6 +23,7 @@ func _ready() -> void:
     speed *= randf_range(0.5, 2.0)
     apply_central_impulse((get_global_transform().basis.z + angle_variation).normalized() * speed)
     apply_torque_impulse(Funcs.randv(random_torque))
+    rotation_degrees += Funcs.randv_fromv(spawn_angle_range)
 
 func _process(delta: float) -> void:
     lifetime -= delta

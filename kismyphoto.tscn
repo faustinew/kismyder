@@ -16,6 +16,8 @@ gravity_scale = 0.0
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_hchht")
+speed = 13.92
+spawn_angle_range = Vector3(3, 3, 180)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_jxivn")

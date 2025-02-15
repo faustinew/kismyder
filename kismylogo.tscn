@@ -15,6 +15,9 @@ physics_material_override = SubResource("PhysicsMaterial_aeo7v")
 gravity_scale = 0.0
 angular_velocity = Vector3(0, 1.74533, 0)
 script = ExtResource("1_mhud0")
+speed = 6.655
+spawn_angle_range = Vector3(15, 45, 45)
+grow_speed = 2.075
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
