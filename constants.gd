@@ -28,9 +28,11 @@ const CC_LIGHTS_HUE = 19
 
 const KEY_RESET = 41
 const KEY_EXPLODE = 42
+const KEY_EXPLODE_PROG = 43
 const KEY_CAM_DEFAULT = 73
 const KEY_CAM_FISHEYE = 74
 const KEY_CAM_FLATTEN = 75
+const KEY_LIGHTS_RESET = 76
 
 const KEY_VOMI = {
 	"TETE" = 60,

@@ -81,7 +81,7 @@ shape = SubResource("WorldBoundaryShape3D_rfgv6")
 
 [node name="TextInputWindow" type="Window" parent="."]
 title = "Texto"
-position = Vector2i(747, 274)
+position = Vector2i(1600, 274)
 size = Vector2i(320, 240)
 transient = true
 

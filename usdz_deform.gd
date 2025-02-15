@@ -4,6 +4,12 @@ extends MeshInstance3D
 @onready var label = $Label3D
 @onready var textos = $"/root/World/TextInputWindow/TextEdit"
 
+@export var explosion_accel = 6.0
+var explosion_force = 0.0
+
+var exploding = false
+var exploding_prog = false
+
 var chaos_counter = 0
 
 var morph_speed = 64.0
@@ -24,6 +30,7 @@ func _ready() -> void:
 
 	GlobalInput.cc_changed.connect(_on_cc_changed)
 	GlobalInput.key_pressed.connect(_on_key_pressed)
+	GlobalInput.key_released.connect(_on_key_released)
 	textos.text_changed.connect(_on_text_changed)
 
 	# on va transferer toutes les infos dans face_shape et on n'utilisera pas SHAPE_DICTIONARY ensuite
@@ -34,6 +41,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+
+	if exploding:
+		explosion_force += explosion_accel * delta
+		explode(explosion_force)
+	if exploding_prog:
+		explosion_force += explosion_accel * delta
+		explode_prog(explosion_force)
 
 	parent.rotation_degrees.y += head_rotation * delta
 	parent.rotation_degrees.x = head_tilt
@@ -73,10 +87,37 @@ func _on_key_pressed(key) -> void:
 		Constants.KEY_RESET:
 			for n in face_shape:
 				face_shape[n][1] = 0.0
+		Constants.KEY_EXPLODE:
+			exploding = true
+		Constants.KEY_EXPLODE_PROG:
+			exploding_prog = true
 		_:
 			if key in Constants.KEY_VOMI.values():
 				if face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] < 1.0:
 					face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] = 1.0 # oula
 
-func _on_text_changed():
+func _on_key_released(key) -> void:
+	match key:
+		Constants.KEY_EXPLODE:
+			exploding = false
+			finish_exploding()
+			explosion_force = 0.0
+		Constants.KEY_EXPLODE_PROG:
+			exploding_prog = false
+			finish_exploding()
+			explosion_force = 0.0
+
+func _on_text_changed() -> void:
 	label.text = textos.text
+
+func explode(force: float) -> void:
+	for n in face_shape:
+		face_shape[n][1] = randf_range(-force, force)
+
+func explode_prog(force: float) -> void:
+	for n in face_shape:
+		face_shape[n][1] += randf_range(-force, force)
+
+func finish_exploding() -> void:
+	for n in face_shape:
+		face_shape[n][1] += randf_range(-0.1, 0.1)
