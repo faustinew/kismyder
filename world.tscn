@@ -78,3 +78,15 @@ shape = SubResource("WorldBoundaryShape3D_rfgv6")
 [node name="O" type="CollisionShape3D" parent="Boundaries"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -32, 0, 0)
 shape = SubResource("WorldBoundaryShape3D_rfgv6")
+
+[node name="TextInputWindow" type="Window" parent="."]
+title = "Texto"
+position = Vector2i(747, 274)
+size = Vector2i(320, 240)
+transient = true
+
+[node name="TextEdit" type="TextEdit" parent="TextInputWindow"]
+offset_right = 320.0
+offset_bottom = 240.0
+placeholder_text = "Écrivaille ton texte ici..."
+wrap_mode = 1

@@ -2,13 +2,13 @@ extends MeshInstance3D
 
 # label texte pour debug
 @onready var label = $Label3D
+@onready var textos = $"/root/World/TextInputWindow/TextEdit"
 
 var chaos_counter = 0
 
 var morph_speed = 64.0
 
 var parent
-
 
 # un multiplieur pour des déformations aléatoires
 var chaos = 0.0
@@ -24,6 +24,7 @@ func _ready() -> void:
 
 	GlobalInput.cc_changed.connect(_on_cc_changed)
 	GlobalInput.key_pressed.connect(_on_key_pressed)
+	textos.text_changed.connect(_on_text_changed)
 
 	# on va transferer toutes les infos dans face_shape et on n'utilisera pas SHAPE_DICTIONARY ensuite
 	# la structure est face_shape[cc] = [0: blend shape index, 1: goal (pour le lerp), 2: cc du mult, 3: valeur min, 4: valeur actuelle]
@@ -36,8 +37,6 @@ func _process(delta: float) -> void:
 
 	parent.rotation_degrees.y += head_rotation * delta
 	parent.rotation_degrees.x = head_tilt
-
-	label.text = str(chaos)
 
 	chaos_counter += 1
 	for n in face_shape:
@@ -78,3 +77,6 @@ func _on_key_pressed(key) -> void:
 			if key in Constants.KEY_VOMI.values():
 				if face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] < 1.0:
 					face_shape[Constants.SHAPE_DICTIONARY["Open"][0]][1] = 1.0 # oula
+
+func _on_text_changed():
+	label.text = textos.text

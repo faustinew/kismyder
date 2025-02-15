@@ -21,6 +21,10 @@ Constants="*res://constants.gd"
 GlobalInput="*res://input.gd"
 Funcs="*res://funcs.gd"
 
+[display]
+
+window/subwindows/embed_subwindows=false
+
 [dotnet]
 
 project/assembly_name="kismyder"
