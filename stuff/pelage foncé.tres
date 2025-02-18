@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rxxplhuiv3yd"]
+
+[resource]
+resource_name = "pelage foncé"
+cull_mode = 2
+albedo_color = Color(0.126659, 0.0687424, 0.0541199, 1)
+roughness = 0.5

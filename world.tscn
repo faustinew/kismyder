@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://difuxpjwy1as0"]
+[gd_scene load_steps=14 format=3 uid="uid://difuxpjwy1as0"]
 
 [ext_resource type="Script" path="res://camera_3d.gd" id="1_0aqul"]
 [ext_resource type="Script" path="res://lights.gd" id="3_sa3l7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8tkplkngf0rx" path="res://blood.tscn" id="7_sgbml"]
 [ext_resource type="PackedScene" uid="uid://342w54ahp6an" path="res://kismyphoto.tscn" id="8_ua4vg"]
 [ext_resource type="PackedScene" uid="uid://dj8mqnrwi25lw" path="res://zuck.tscn" id="9_hyojn"]
+[ext_resource type="PackedScene" uid="uid://dd26qcivhfibw" path="res://sanglier.tscn" id="10_l82df"]
 
 [sub_resource type="Environment" id="Environment_gn15j"]
 background_mode = 1
@@ -33,7 +34,7 @@ script = ExtResource("1_0aqul")
 [node name="Spawner" type="Node3D" parent="KismyderFace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.99321, 1.5)
 script = ExtResource("3_wolhj")
-instance_scene = Array[PackedScene]([ExtResource("6_mhbdy"), ExtResource("7_sgbml"), ExtResource("5_ei8dp"), ExtResource("4_pfx8g"), ExtResource("8_ua4vg"), ExtResource("9_hyojn")])
+instance_scene = Array[PackedScene]([ExtResource("6_mhbdy"), ExtResource("7_sgbml"), ExtResource("5_ei8dp"), ExtResource("4_pfx8g"), ExtResource("8_ua4vg"), ExtResource("9_hyojn"), ExtResource("10_l82df")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gn15j")

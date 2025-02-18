@@ -7,6 +7,7 @@ var vblod = false
 var vtete = false
 var vtoff = false
 var vzuck = false
+var vsgli = false
 
 var counter = 0
 @export var spawn_every_n_seconds = 0.05
@@ -39,6 +40,8 @@ func _process(delta: float) -> void:
 			spawn_instance(instance_scene[4])
 		if vzuck:
 			spawn_instance(instance_scene[5])
+		if vsgli:
+			spawn_instance(instance_scene[6])
 
 
 func spawn_random_instance() -> void:
@@ -68,6 +71,8 @@ func _on_key_pressed(key) -> void:
 			vtoff = true
 		Constants.KEY_VOMI["ZUCK"]:
 			vzuck = true
+		Constants.KEY_VOMI["SGLI"]:
+			vsgli = true
 			
 func _on_key_released(key) -> void:
 	match key:
@@ -81,3 +86,5 @@ func _on_key_released(key) -> void:
 			vtoff = false
 		Constants.KEY_VOMI["ZUCK"]:
 			vzuck = false
+		Constants.KEY_VOMI["SGLI"]:
+			vsgli = false

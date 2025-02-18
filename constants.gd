@@ -40,7 +40,8 @@ const KEY_VOMI = {
 	"BEZO" = 58,
 	"BLOD" = 91,
 	"TOFF" = 92,
-	"ZUCK" = 90
+	"ZUCK" = 90,
+	"SGLI" = 89
 }
 
 

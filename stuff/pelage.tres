@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dxlfogbwqj6n3"]
+
+[resource]
+resource_name = "pelage"
+cull_mode = 2
+albedo_color = Color(0.366659, 0.157466, 0.124676, 1)
+roughness = 0.5
