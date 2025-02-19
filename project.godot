@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="kismyder"
-run/main_scene="res://world.tscn"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Constants="*res://constants.gd"
-GlobalInput="*res://input.gd"
-Funcs="*res://funcs.gd"
+Constants="*res://scripts/constants.gd"
+GlobalInput="*res://scripts/input.gd"
+Funcs="*res://scripts/funcs.gd"
 
 [display]
 

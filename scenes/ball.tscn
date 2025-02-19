@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://duhh3236j1h3h"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_8kiu4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2s37t"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_blcyj"]
+frequency = 0.0378
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eyhh4"]
+seamless = true
+seamless_blend_skirt = 0.307
+noise = SubResource("FastNoiseLite_blcyj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiv6l"]
+albedo_color = Color(0.596649, 0.846581, 0.843982, 1)
+metallic = 0.95
+metallic_specular = 0.24
+roughness = 0.11
+emission = Color(0, 1, 0, 1)
+emission_operator = 1
+normal_enabled = true
+normal_scale = 0.05
+normal_texture = SubResource("NoiseTexture2D_eyhh4")
+rim_tint = 0.85
+backlight = Color(1, 1, 1, 1)
+refraction_enabled = true
+refraction_scale = 1.0
+grow_amount = -0.352
+point_size = 52.9
+proximity_fade_distance = 0.01
+distance_fade_mode = 3
+distance_fade_min_distance = 0.5
+distance_fade_max_distance = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_nsmso"]
+material = SubResource("StandardMaterial3D_kiv6l")
+radial_segments = 12
+rings = 8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eo1sc"]
+radius = 1.5
+
+[node name="Ball" type="RigidBody3D"]
+gravity_scale = 0.0
+center_of_mass_mode = 1
+linear_damp = 0.1
+script = ExtResource("1_8kiu4")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2s37t")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_nsmso")
+skeleton = NodePath("")
+
+[node name="OuterArea" type="Area3D" parent="."]
+
+[node name="OuterCollision" type="CollisionShape3D" parent="OuterArea"]
+shape = SubResource("SphereShape3D_eo1sc")
