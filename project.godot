@@ -13,6 +13,7 @@ config_version=5
 config/name="kismyder"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -23,42 +24,19 @@ Funcs="*res://scripts/funcs.gd"
 
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/size/resizable=false
 window/subwindows/embed_subwindows=false
 
 [dotnet]
 
 project/assembly_name="kismyder"
 
-[input]
+[editor]
 
-face_nose={
-"deadzone": 0.5,
-"events": []
-}
-face_ears={
-"deadzone": 0.5,
-"events": []
-}
-face_mouth_upper={
-"deadzone": 0.5,
-"events": []
-}
-face_mouth_lower={
-"deadzone": 0.5,
-"events": []
-}
-face_mouth_open={
-"deadzone": 0.5,
-"events": []
-}
-light1_colour={
-"deadzone": 0.5,
-"events": []
-}
-light1_intensity={
-"deadzone": 0.5,
-"events": []
-}
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [rendering]
 
