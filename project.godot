@@ -10,11 +10,14 @@ config_version=5
 
 [application]
 
-config/name="kismyder"
+config/name="Kismyder"
+config/description="Un programme de visualisation de Kismyder"
+config/version="0.1"
 run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+boot_splash/image="res://iconmyder.png"
+config/icon="res://iconmyder.png"
 
 [autoload]
 
@@ -37,6 +40,10 @@ project/assembly_name="kismyder"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[physics]
+
+3d/run_on_separate_thread=true
 
 [rendering]
 

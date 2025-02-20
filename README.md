@@ -6,3 +6,5 @@ je pisse et je chies
 
 ### Sanglier modelling by:
 - [x] Aurélie
+
+![Kismyder](iconmyder.png)
