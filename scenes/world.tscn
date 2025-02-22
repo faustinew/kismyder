@@ -82,7 +82,7 @@ shape = SubResource("WorldBoundaryShape3D_rfgv6")
 
 [node name="TextInputWindow" type="Window" parent="."]
 title = "Texto"
-position = Vector2i(1600, 274)
+position = Vector2i(747, 274)
 size = Vector2i(320, 240)
 transient = true
 
@@ -91,3 +91,6 @@ offset_right = 320.0
 offset_bottom = 240.0
 placeholder_text = "Écrivaille ton texte ici..."
 wrap_mode = 1
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("bezos", "blood", "kismylogo", "kismyphoto", "minihead", "sanglier", "zuck"), [ExtResource("6_mhbdy"), ExtResource("7_sgbml"), ExtResource("5_ei8dp"), ExtResource("8_ua4vg"), ExtResource("4_pfx8g"), ExtResource("10_l82df"), ExtResource("9_hyojn")]]

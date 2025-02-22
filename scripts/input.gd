@@ -1,6 +1,7 @@
 extends Node
 
 var cc: Array[int] = []
+var fullscreen_on = false
 
 signal cc_changed(cc_number)
 signal key_pressed(key)
@@ -39,3 +40,14 @@ func _unhandled_input(event: InputEvent) -> void:
 				cc_changed.emit(event.controller_number)
 		#print(event.controller_number, ": ", cc[event.controller_number])
 		#print(event.pitch)
+	if event.is_action_pressed("fullscreen"):
+		fullscreen_on = not fullscreen_on
+		if fullscreen_on:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	if event.is_action_pressed("scaling"):
+		var v = get_viewport()
+		var s = v.scaling_3d_scale - 0.25
+		if s < 0.25: s = 1.0
+		v.scaling_3d_scale = s
